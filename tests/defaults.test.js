@@ -75,6 +75,9 @@ describe("Next", () => {
       "Setting up SSR pages and SSG pages with fallback as Netlify Functions in out_functions/"
     );
     expect(BUILD_OUTPUT).toMatch(
+      "Setting up ISR pages as Netlify Functions in out_functions/"
+    );
+    expect(BUILD_OUTPUT).toMatch(
       "Copying pre-rendered SSG pages to out_publish/ and JSON data to out_publish/_next/data/"
     );
     expect(BUILD_OUTPUT).toMatch(
@@ -115,6 +118,22 @@ describe("SSR Pages", () => {
           functionsDir,
           "next_getServerSideProps_id",
           "next_getServerSideProps_id.js"
+        )
+      )
+    ).toBe(true);
+  });
+});
+
+describe("ISR Pages", () => {
+  const functionsDir = join(PROJECT_PATH, "out_functions");
+
+  test("creates a Netlify Function for each ISR page", () => {
+    expect(
+      existsSync(
+        join(
+          functionsDir,
+          "next_getStaticProps_dynamic",
+          "next_getStaticProps_dynamic.js"
         )
       )
     ).toBe(true);

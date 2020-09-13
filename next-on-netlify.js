@@ -15,6 +15,7 @@ const copyPublicFiles = require("./lib/copyPublicFiles");
 const copyNextAssets = require("./lib/copyNextAssets");
 const setupSsrPages = require("./lib/setupSsrPages");
 const setupSsgPages = require("./lib/setupSsgPages");
+const setupIsrPages = require("./lib/setupIsrPages");
 const setupHtmlPages = require("./lib/setupHtmlPages");
 const setupRedirects = require("./lib/setupRedirects");
 
@@ -27,6 +28,8 @@ copyNextAssets();
 setupSsrPages();
 
 setupSsgPages();
+
+setupIsrPages();
 
 setupHtmlPages();
 
